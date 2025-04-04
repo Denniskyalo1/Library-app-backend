@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Todo\TodoController;
+use App\Http\Controllers\BorrowedBookController;
+use App\Http\Controllers\BookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,8 @@ Route::post('/login', [AuthController::class,'login']);
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::post('/logout',[AuthController::class,'logout']);
+    Route::post('/borrow-book',[BorrowedBookController::class,'borrowBook']);
+    Route::post('/addBook',[BookController::class,'addBook']);
     
 });
 
